@@ -10,3 +10,12 @@
     margin: 0 0 0 0;
     font-weight: 900;
 }
+
+.play-on-hover {
+    background-image: url("C:\Users\An\Documents\Projects\3dportfolio.github.io\images\generated_static.jpg");
+    background-size: cover;
+}
+
+.play-on-hover:hover {
+    background-image: url("images/generated.gif");
+}
