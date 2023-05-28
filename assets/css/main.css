@@ -2578,7 +2578,7 @@ input, select, textarea {
 		-webkit-flex-wrap: wrap;
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
-		postiion: relative;
+		position: relative;
 		margin: -2.5em 0 0 -2.5em;
 	}
 
@@ -2589,7 +2589,8 @@ input, select, textarea {
 			transition: transform 0.5s ease, opacity 0.5s ease;
 			position: relative;
 			width: calc(33.33333% - 2.5em);
-			margin: 2.5em 0 0 2.5em;
+			margin: 2.5em 0 0 2.5em;	
+			height: 100%;		
 		}
 
 			.tiles article > .image {
@@ -2603,13 +2604,13 @@ input, select, textarea {
 				border-radius: 4px;
 				overflow: hidden;
 			}
-
+			
 				.tiles article > .image img {
 					display: block;
 					width: 100%;
 				}
 
-				.tiles article > .image:before {
+				.tiles article > .image:not(.gallery):before {
 					pointer-events: none;
 					-moz-transition: background-color 0.5s ease, opacity 0.5s ease;
 					-webkit-transition: background-color 0.5s ease, opacity 0.5s ease;
@@ -2627,7 +2628,7 @@ input, select, textarea {
 					opacity: 0.6;
 				}
 
-				.tiles article > .image:after {
+				.tiles article > .image:not(.gallery):after {
 					pointer-events: none;
 					-moz-transition: opacity 0.5s ease;
 					-webkit-transition: opacity 0.5s ease;
@@ -2647,6 +2648,7 @@ input, select, textarea {
 					opacity: 0.25;
 					z-index: 2;
 				}
+
 
 			.tiles article > a {
 				display: -moz-flex;
@@ -2735,11 +2737,20 @@ input, select, textarea {
 				background-color: #8499e7;
 			}
 
-			body:not(.is-touch) .tiles article:hover > .image {
+			body:not(.is-touch) .tiles article:hover > .image:not(.gallery) {
 				-moz-transform: scale(1.1);
 				-webkit-transform: scale(1.1);
 				-ms-transform: scale(1.1);
 				transform: scale(1.1); /* enlargement on hover*/
+			}
+
+			body:not(.is-touch) .tiles article:hover > .gallery {
+				-moz-transform: scale(1.5
+				);
+				-webkit-transform: scale(1.5);
+				-ms-transform: scale(1.5);
+				transform: scale(1.5); /* enlargement on hover*/
+				z-index: 5;
 			}
 
 				body:not(.is-touch) .tiles article:hover > .image:before {
@@ -3344,7 +3355,7 @@ input, select, textarea {
 	background-color: #585858;
 }
 
-.btn-lg:focus 
+.btn-lg:focus .btn-lg:active 
 {
 	outline: none;
 	border: 5px solid #f2849e;
@@ -3355,5 +3366,119 @@ input, select, textarea {
 
 .nav.nav-pills .nav-link.active {
 	
+	outline: none;
+	border: 5px solid #f2849e;
+	box-shadow: none;
+	color: #f2849e !important;
 	background-color: rgb(255, 255, 255);
+}
+
+
+/* gallery */
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.row .column
+{
+	flex: 50%;
+	width: auto;
+	overflow: hidden;
+	padding: 0 4px;
+	height: 100%;
+}
+
+.row .column img
+{
+	margin-top: 2%;
+	width: 100%;
+	height:100%;
+	filter:grayscale(1);
+	border-radius: 5px;
+	transition: 0.3s linear;
+	z-index:1;
+}
+.row .column img:hover
+{
+	filter:grayscale(0);
+	-moz-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	transform: scale(1.1);
+	z-index:5;
+}
+
+/*gallery responsive*/
+@media screen and (max-width: 1280px) {
+
+	.row {
+		margin: -1.25em 0 0 -1.25em;
+	}
+
+		.row .column {
+			flex: calc(33.33333% - 1.25em);
+			margin: 1.25em 0 0 1.25em;
+		}
+
+}
+
+@media screen and (max-width: 980px) {
+
+	.row {
+		margin: -2.5em 0 0 -2.5em;
+	}
+
+		.row .column {
+			flex: calc(50% - 2.5em);
+			margin: 2.5em 0 0 2.5em;
+		}
+
+}
+
+@media screen and (max-width: 736px) {
+
+	.row {
+		margin: -1.25em 0 0 -1.25em;
+	}
+
+	
+
+		.row .column img:hover {
+				-moz-transform: scale(1.0);
+				-webkit-transform: scale(1.0);
+				-ms-transform: scale(1.0);
+				transform: scale(1.0);
+			}
+
+}
+
+@media screen and (max-width: 480px) {
+
+	.row {
+		margin: 0;
+	}
+
+		.row .column {
+			flex: 100%;
+			margin: 1.25em 0 0 0;
+		}
+
+		.row .column img
+{
+	
+	filter:grayscale(0);
+
+}
+
+}
+
+@media (hover:none) {
+			.row .column img
+{
+	
+	filter:grayscale(0);
+
+}
 }
