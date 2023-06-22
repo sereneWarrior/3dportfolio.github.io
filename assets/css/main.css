@@ -100,7 +100,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #ffffff;
+		background: #f0ded6;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -2582,7 +2582,7 @@ input, select, textarea {
 		margin: -2.5em 0 0 -2.5em;
 	}
 
-		.tiles article {
+		.tiles article  {
 			-moz-transition: -moz-transform 0.5s ease, opacity 0.5s ease;
 			-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
 			-ms-transition: -ms-transform 0.5s ease, opacity 0.5s ease;
@@ -2610,7 +2610,7 @@ input, select, textarea {
 					width: 100%;
 				}
 
-				.tiles article > .image:not(.gallery):before {
+				.tiles article > .image:before {
 					pointer-events: none;
 					-moz-transition: background-color 0.5s ease, opacity 0.5s ease;
 					-webkit-transition: background-color 0.5s ease, opacity 0.5s ease;
@@ -2625,10 +2625,10 @@ input, select, textarea {
 					height: 100%;
 					opacity: 1.0;
 					z-index: 1;
-					opacity: 0.6;
+					opacity: 0.8; /*Color overlay*/
 				}
 
-				.tiles article > .image:not(.gallery):after {
+				.tiles article > .image:after {
 					pointer-events: none;
 					-moz-transition: opacity 0.5s ease;
 					-webkit-transition: opacity 0.5s ease;
@@ -2737,20 +2737,11 @@ input, select, textarea {
 				background-color: #8499e7;
 			}
 
-			body:not(.is-touch) .tiles article:hover > .image:not(.gallery) {
+			body:not(.is-touch) .tiles article:hover > .image {
 				-moz-transform: scale(1.1);
 				-webkit-transform: scale(1.1);
 				-ms-transform: scale(1.1);
 				transform: scale(1.1); /* enlargement on hover*/
-			}
-
-			body:not(.is-touch) .tiles article:hover > .gallery {
-				-moz-transform: scale(1.5
-				);
-				-webkit-transform: scale(1.5);
-				-ms-transform: scale(1.5);
-				transform: scale(1.5); /* enlargement on hover*/
-				z-index: 5;
 			}
 
 				body:not(.is-touch) .tiles article:hover > .image:before {
@@ -2759,7 +2750,7 @@ input, select, textarea {
 				}
 
 				body:not(.is-touch) .tiles article:hover > .image:after {
-					opacity: 0;
+					opacity: 0; /* Show fill image/ Remove color overly*/
 				}
 
 			body:not(.is-touch) .tiles article:hover .content {
@@ -2846,11 +2837,21 @@ input, select, textarea {
 /* Header */
 
 	#header {
-		padding: 8em 0 0.1em 0 ;
+		 /*padding-top: 4em; Not working well with logo bar*/
+		width: 100%;
+		
+	}
+
+	#header.main{
+		height: 100vh;
 	}
 
 		#header .logo {
-			display: block;
+			
+			position: fixed;
+			width: 100vw;
+			padding-left: 4em;
+			background: #8499e7;
 			border-bottom: 0;
 			color: inherit;
 			font-weight: 900;
@@ -2858,7 +2859,7 @@ input, select, textarea {
 			margin: 0 0 2.5em 0;
 			text-decoration: none;
 			text-transform: uppercase;
-			display: inline-block;
+			z-index: 100;
 		}
 
 			#header .logo > * {
@@ -2878,6 +2879,7 @@ input, select, textarea {
 
 		#header nav {
 			position: fixed;
+			background-color: #8499e7;
 			right: 2em;
 			top: 2em;
 			z-index: 10000;
@@ -3168,7 +3170,8 @@ input, select, textarea {
 /* Main */
 
 	#main {
-		padding: 0em 0 6em 0 ;
+		padding: 20em 0 6em 0 ;
+		background-color: #ffffff;
 	}
 
 		@media screen and (max-width: 736px) {
@@ -3393,7 +3396,7 @@ input, select, textarea {
 	margin: 2.5em 0 0 2.5em;
 	width: 100%;
 	height:100%;
-	filter:grayscale(1);
+	filter:grayscale(.7);
 	border-radius: 5px;
 	transition: 0.3s linear;
 }
@@ -3406,6 +3409,9 @@ input, select, textarea {
 	transform: scale(1.1);
 }
 
+
+
+
 /*gallery responsive*/
 @media screen and (max-width: 1280px) {
 
@@ -3413,10 +3419,10 @@ input, select, textarea {
 		margin: -1.25em 0 0 -1.25em;
 	}
 
-		.row .column {
-			flex: calc(33.33333% - 1.25em);
-			margin: 1.25em 0 0 1.25em;
-		}
+	.row .column {
+		flex: calc(33.33333% - 1.25em);
+		margin: 1.25em 0 0 1.25em;
+	}
 
 }
 
@@ -3426,10 +3432,10 @@ input, select, textarea {
 		margin: -2.5em 0 0 -2.5em;
 	}
 
-		.row .column {
-			flex: calc(50% - 2.5em);
-			margin: 2.5em 0 0 2.5em;
-		}
+	.row .column {
+		flex: calc(50% - 2.5em);
+		margin: 2.5em 0 0 2.5em;
+	}
 
 }
 
@@ -3438,16 +3444,13 @@ input, select, textarea {
 	.row {
 		margin: -1.25em 0 0 -1.25em;
 	}
-
 	
-
-		.row .column img:hover {
-				-moz-transform: scale(1.0);
-				-webkit-transform: scale(1.0);
-				-ms-transform: scale(1.0);
-				transform: scale(1.0);
-			}
-
+	.row .column img:hover {
+		-moz-transform: scale(1.0);
+		-webkit-transform: scale(1.0);
+		-ms-transform: scale(1.0);
+		transform: scale(1.0);
+	}
 }
 
 @media screen and (max-width: 480px) {
@@ -3456,30 +3459,90 @@ input, select, textarea {
 		margin: 0;
 	}
 
-		.row .column {
-			flex: 100%;
-			margin: 1.25em 0 0 0;
-		}
+	.row .column {
+		flex: 100%;
+		margin: 1.25em 0 0 0;
+	}
 
-		.row .column img
-{
-	
-	filter:grayscale(0);
-
-}
+	.row .column img{
+		filter:grayscale(0);
+	}
 
 }
 
 @media (hover:none) {
-			.row .column img
-{
+	.row .column img
+	{
+		filter:grayscale(0);
+	}
+}
+
+.main-container{
+	padding:10px 10%;
+	display: flex;
+	width: 100%;
+	/*problem here*/
+	min-height: 100%;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.header-text {
 	
-	filter:grayscale(0);
+	padding-left: 5rem ;
+	padding-top: 5rem;
+	font-size: 30px;
+	width: 50%;
+}
+.header-text h1 {
+	font-weight: 500;
+	font-size: 86px;
+	max-width: 550px;
+	line-height: 95px;
 
 }
+
+
+.image-box {
+	position: relative;
+	min-width: 70vh;
+	margin-right: 10vw;
 }
 
-#svg:hover path
-{
-	fill: none;
+
+.image-container{
+	display: flex;
+	width: 50%;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.image-box img{
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+
+}
+/*header responsive*/
+@media screen and (max-width: 900px) {
+
+	.main-container{
+		flex-wrap: wrap;
+	}
+
+	.header-text {
+	
+		padding: 15 vw 10vw;
+		width: 100%;
+		z-index: 50;
+	}
+	
+	.image-container{
+		display: none;
+		
+	}
+
 }
