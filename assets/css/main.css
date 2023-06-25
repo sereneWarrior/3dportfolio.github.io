@@ -8,6 +8,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -1804,72 +1805,6 @@ input, select, textarea {
 
 	}
 
-/* Icon */
-
-	.icon {
-		text-decoration: none;
-		border-bottom: none;
-		position: relative;
-	}
-
-		.icon:before {
-			-moz-osx-font-smoothing: grayscale;
-			-webkit-font-smoothing: antialiased;
-			display: inline-block;
-			font-style: normal;
-			font-variant: normal;
-			text-rendering: auto;
-			line-height: 1;
-			text-transform: none !important;
-			font-family: 'Font Awesome 5 Free';
-			font-weight: 400;
-		}
-
-		.icon > .label {
-			display: none;
-		}
-
-		.icon:before {
-			line-height: inherit;
-		}
-
-		.icon.solid:before {
-			font-weight: 900;
-		}
-
-		.icon.brands:before {
-			font-family: 'Font Awesome 5 Brands';
-		}
-
-		.icon.style2 {
-			-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-			-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-			-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-			transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-			background-color: transparent;
-			border: solid 1px #c9c9c9;
-			border-radius: 4px;
-			width: 2.65em;
-			height: 2.65em;
-			display: inline-block;
-			text-align: center;
-			line-height: 2.65em;
-			color: inherit;
-		}
-
-			.icon.style2:before {
-				font-size: 1.1em;
-			}
-
-			.icon.style2:hover {
-				color: #f2849e;
-				border-color: #f2849e;
-			}
-
-			.icon.style2:active {
-				background-color: rgba(242, 132, 158, 0.1);
-			}
-
 /* List */
 
 	ol {
@@ -2041,20 +1976,6 @@ input, select, textarea {
 							margin-left: -0.5rem;
 						}
 
-		}
-
-/* Icons */
-
-	ul.icons {
-		cursor: default;
-		list-style: none;
-		padding-left: 0;
-		margin: -1em 0 2em -1em;
-	}
-
-		ul.icons li {
-			display: inline-block;
-			padding: 1em 0 0 1em;
 		}
 
 /* Form */
@@ -2625,7 +2546,7 @@ input, select, textarea {
 					height: 100%;
 					opacity: 1.0;
 					z-index: 1;
-					opacity: 0.8; /*Color overlay*/
+					opacity: 0.6; /*Color overlay*/
 				}
 
 				.tiles article > .image:after {
@@ -2714,28 +2635,13 @@ input, select, textarea {
 					}
 
 			.tiles article.style1 > .image:before {
-				background-color:  #f2849e;
+				background-color:#a0003e;
 			}
 
 			.tiles article.style2 > .image:before {
-				background-color: #8499e7;
+				background-color: #9bdeac;
 			}
 
-			.tiles article.style3 > .image:before {
-				background-color: #593911;
-			}
-
-			.tiles article.style4 > .image:before {
-				background-color: #c75b9b;
-			}
-
-			.tiles article.style5 > .image:before {
-				background-color: #ae85ca;
-			}
-
-			.tiles article.style6 > .image:before {
-				background-color: #8499e7;
-			}
 
 			body:not(.is-touch) .tiles article:hover > .image {
 				-moz-transform: scale(1.1);
@@ -2846,38 +2752,85 @@ input, select, textarea {
 		height: 100vh;
 	}
 
+	#header .logo-bar {
+		position: fixed;
+		width: 100vw;
+		
+	}
+
 		#header .logo {
-			
-			position: fixed;
 			width: 100vw;
-			padding-left: 4em;
-			background: #8499e7;
+			position: fixed;
+		
+			padding: 1em .5em .5em 4em;
 			border-bottom: 0;
-			color: inherit;
+			color: #585858;
 			font-weight: 900;
 			letter-spacing: 0.35em;
-			margin: 0 0 2.5em 0;
+			margin: 0em 0 2.5em 0em;
 			text-decoration: none;
 			text-transform: uppercase;
 			z-index: 100;
+			background-image: linear-gradient(#f0ded6, rgba(255,0,0,0));
+
 		}
 
-			#header .logo > * {
-				display: inline-block;
-				vertical-align: middle;
-			}
+		#header .logo > * {
+			display: inline-block;
+			vertical-align: middle;
+			
+		}
 
-			#header .logo .symbol {
-				margin-right: 0.65em;
-			}
-
-				#header .logo .symbol img {
-					display: block;
-					width: 4em;
-					height: 4em;
-				}
+		#header .logo .symbol {
+			margin-right: 0.65em;
+			
+		}
+		#header .logo .symbol img {
+			display: block;
+			/*Icon container size - Change size of icon in icon class font-size*/
+			width: 4em;
+			height: 4em;
+		}
 
 		#header nav {
+			position: fixed;
+			/*make it aligned to the rigth use padding*/
+			right: .5em;
+			
+			z-index: 150 ;
+		}
+
+		#header nav ul {
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			-moz-align-items: center;
+			-webkit-align-items: center;
+			-ms-align-items: center;
+			align-items: center;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		#header nav ul li {
+			display: inline-block;
+			padding: .5em .5em .5em 0.5em;
+			margin: 10px;
+			
+		}
+
+		#header nav ul li a {
+			-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+			-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+			-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+			transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+			display: block;
+			position: relative;
+		}
+/*	OLD NAV FUNCTIONALITY
+	#header nav {
 			position: fixed;
 			background-color: #8499e7;
 			right: 2em;
@@ -2963,12 +2916,81 @@ input, select, textarea {
 						#header nav ul li a[href="#menu"]:hover:after {
 							opacity: 0;
 						}
+*/
 
-		@media screen and (max-width: 736px) {
+/* Icons 
+	ul.icons {
+		cursor: default;
+		list-style: none;
+		padding-left: 0;
+		margin: -1em 0 2em -1em;
+	}
 
-			#header {
-				padding: 4em 0 0.1em 0 ;
-			}
+	ul.icons li {
+		display: inline-block;
+		padding: 1em 0 0 1em;
+	}*/
+
+/* Icon */
+
+	.icon {
+		text-decoration: none;
+		border-bottom: none;
+		position: relative;
+	}
+
+	.icon:before {
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		display: inline-block;
+		font-style: normal;
+		font-variant: normal;
+		text-rendering: auto;
+		line-height: 1;
+		text-transform: none !important;
+		font-family: 'Font Awesome 5 Free';
+		font-weight: 400;
+	}
+
+	.icon > .label {
+		display: none;
+	}
+
+	.icon:before {
+		line-height: inherit;
+	}
+
+	.icon.solid:before {
+		font-weight: 900;
+	}
+
+	.icon.brands:before {
+		font-family: 'Font Awesome 5 Brands';
+	}
+
+		.icon.style2 {
+			-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+			-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+			-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+			transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+			background-color: transparent;
+			
+			display: inline-block;
+			text-align: center;
+			line-height: 1;
+			color: inherit;
+		}
+	
+		.icon.style2:before {
+			font-size: 3.5em;
+		}
+	
+		.icon.style2:hover {
+			color: #f2849e;
+			border-color: #f2849e;
+		}
+@media screen and (max-width: 736px) {
+
 
 				#header nav {
 					right: 0.5em;
@@ -3170,8 +3192,8 @@ input, select, textarea {
 /* Main */
 
 	#main {
-		padding: 20em 0 6em 0 ;
-		background-color: #ffffff;
+		padding: 2em 0 6em 0 ;
+		background-color: #f2849e;
 	}
 
 		@media screen and (max-width: 736px) {
@@ -3349,32 +3371,60 @@ input, select, textarea {
 		}
 
 /* Pills styles */ 
-.btn-lg
+
+.nav-pills
 {
-	outline: none;
-	border: 5px solid #585858;
-	box-shadow: none;
-	color: #ffffff !important;
-	background-color: #585858;
+	/*background: #585858;
+	border-radius: 50px;*/
+	left: 0px;
+	padding: 5em 1em 5em 1em;
+	overflow: visible;
+	width: 100vw;
+	background-image: linear-gradient(#f0ded6, #f2849e);
 }
 
-.btn-lg:focus .btn-lg:active 
+.nav-item
+{
+	padding: .25em 5%;
+}
+
+.btn-lg
+{
+	/*-moz-transform:  border-width 0s ease-out 0.5s;
+	-webkit-transform:  border-width 0s ease-out 0.5s;
+	-ms-transform:  border-width 0s ease-out 0.5s;
+	transition:   border-width 0s ease-out 0.5s;*/
+	outline: none;
+	border-radius: 50px!important;
+	border: 2.5px solid #585858;
+	box-shadow: none;
+	color: #585858 !important;
+	transition: .1s linear;
+	/*background-color: #f0ded6;*/
+
+}
+
+
+
+.btn-lg:hover
 {
 	outline: none;
-	border: 5px solid #f2849e;
 	box-shadow: none;
-	color: #f2849e !important;
-	background-color: rgb(255, 255, 255);
+	color: #585858 !important;
+	border: 5px solid #585858;
+	background-color: #f2849e;
 }
+
+
 
 .nav.nav-pills .nav-link.active {
 
 	border: 5px solid #f2849e;
 	box-shadow: none;
 	color: #f2849e !important;
-	background-color: rgb(255, 255, 255);
-}
 
+	background-color: #585858;
+}
 
 /* gallery */
 .row {
@@ -3477,11 +3527,12 @@ input, select, textarea {
 	}
 }
 
+/*HEADER CONTAINER & TEXT*/
+
 .main-container{
 	padding:10px 10%;
 	display: flex;
 	width: 100%;
-	/*problem here*/
 	min-height: 100%;
 	align-items: center;
 	justify-content: center;
@@ -3494,20 +3545,27 @@ input, select, textarea {
 	padding-top: 5rem;
 	font-size: 30px;
 	width: 50%;
+	z-index: 50;
 }
 .header-text h1 {
-	font-weight: 500;
+	font-weight: 900;
 	font-size: 86px;
-	max-width: 550px;
+	max-width: 100%;
 	line-height: 95px;
-
+	letter-spacing: .01em;
+	color: #f2849e;
+	-webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: #585858;
 }
 
+/*HEADER IMAGE*/
 
 .image-box {
 	position: relative;
 	min-width: 70vh;
 	margin-right: 10vw;
+	border-radius: 50%;
+
 }
 
 
@@ -3518,13 +3576,16 @@ input, select, textarea {
 	align-items: center;
 	justify-content: center;
 	position: relative;
+	
 }
 
 .image-box img{
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
-
+	opacity: .7;
+	border-radius: 50%;
+	
 }
 /*header responsive*/
 @media screen and (max-width: 900px) {
@@ -3537,7 +3598,7 @@ input, select, textarea {
 	
 		padding: 15 vw 10vw;
 		width: 100%;
-		z-index: 50;
+		
 	}
 	
 	.image-container{
