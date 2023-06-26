@@ -2745,11 +2745,8 @@ input, select, textarea {
 	#header {
 		 /*padding-top: 4em; Not working well with logo bar*/
 		width: 100%;
-		
-	}
-
-	#header.main{
 		height: 100vh;
+		
 	}
 
 	#header .logo-bar {
