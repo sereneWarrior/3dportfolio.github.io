@@ -2825,9 +2825,9 @@ body.is-touch .tiles article .content {
 
 .logobar {
   position: fixed;
-  width: 100vw;
+  min-width: 100vw;
 
-  min-height: 8vh;
+  max-height: 20vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2836,7 +2836,7 @@ body.is-touch .tiles article .content {
   background-image: linear-gradient(#f0ded6, rgba(255, 0, 0, 0));
 }
 .logo {
-  padding: 1em 0.5em 0.5em 4em;
+  padding: 1rem 0.5rem 0.5rem 4rem;
   border-bottom: 0;
   color: #585858;
   font-weight: 900;
@@ -2858,12 +2858,12 @@ body.is-touch .tiles article .content {
 
 .logo .symbol img {
   display: block;
-  width: 9vh;
-  height: 9vh;
+  width: clamp(3rem, 7vw, 9rem);
+  
 }
 
 nav {
-  padding: 1em 2em 0% 0.5em;
+  padding: 1rem 2rem 0% 0.5rem;
   height: 100%;
 }
 nav ul {
@@ -3497,10 +3497,10 @@ html {
 /*HEADER CONTAINER & TEXT*/
 
 .main-container {
-  padding: 9rem 2.5em 0 2.5em;
+  padding: clamp(1rem,10vh, 8rem) 2.5em 0 2.5em;
   display: flex;
   
-  width: 100vw;
+  min-width: 100vw;
   height: 100vh;
   align-items: center;
   justify-content: center;
@@ -3508,7 +3508,7 @@ html {
 
 .header-text {
   padding-left: clamp(5rem,10vw, 15rem);
-  padding-top: 5rem;
+  padding-top: clamp(2rem,10vh, 5rem);
   min-width: 60%;
   z-index: 50;
 }
@@ -3611,29 +3611,15 @@ html {
 
   .image-box {
     margin-top: 0;
-    width: 1000px;
   }
-
-/*   .header-text h1 {
-    font-weight: 900;
-    font-size: 75px;
-    width: 100%;
-    height: 60%;
-    line-height: 95px;
-    letter-spacing: 0.01em;
-    color: #f2849e;
-    -webkit-text-stroke-width: 3px;
-    -webkit-text-stroke-color: #585858;
-  }*/
-
  
 }
 
 @media screen and (max-width: 900px) {
   /* header */
   .header-text {
-    padding: 15 vw 10vw;
-    width: 100%;
+   
+    min-width: 100%;
   }
 
   .image-container {
@@ -3654,6 +3640,20 @@ html {
   .main-container {
     flex-wrap: wrap;
     align-content: baseline;
+  }
+
+  .logobar nav {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .logobar nav ul {
+    display: inherit;
+    justify-content: center;
+  }
+  .logobar nav li {
+    padding: 0 2vw;
   }
 }
 
@@ -3755,14 +3755,14 @@ html {
   --fs-500: 1.5em;
   --fs-400: 1.7cqi;
 
-  --lh-xl:10cqh;
+  --lh-xl:clamp(3rem, 10cqh , 5rem)
 }
 
 @media screen and (max-width: 1280px)
 {
   :root{
-    --fs-xl: clamp(4rem, 6cqi , 5rem); 
-    --lh-xl:10cqh;
+    --fs-xl: clamp(3rem, 5cqi , 5rem); 
+ 
 
   }
 }
@@ -3770,16 +3770,15 @@ html {
 @media screen and (max-width: 900px)
 {
   :root{
-    --fs-xl: 5rem;  
+    --fs-xl: clamp(3rem, 6cqi ,5rem); 
     --fs-400: 4cqi;
-   
   }
 }
 
 @media screen and (max-width: 590px) {
   :root{
     --fs-xl: 12cqi;
-    --lh-xl: 7cqh;
+    --lh-xl:7cqh;
     --fs-500: 1.2rem;
   
    
