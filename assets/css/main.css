@@ -3408,7 +3408,7 @@ html {
 
 #wrapper > * > .inner {
   width: 100%;
-  max-width: 68em;
+  max-width: 90vw;
   margin: 0 auto;
   padding: 0 2.5em;
 }
@@ -3425,13 +3425,13 @@ html {
   /*background: #585858;
 	border-radius: 50px;*/
   left: 0px;
-  padding: 5em 1em 5em 1em;
+  padding: clamp(.5rem, 7vh, 5rem) clamp(.5rem, 5vw, 2rem);
   overflow: visible;
   width: 100vw;
 }
 
 .nav-item {
-  padding: 0.25em 5%;
+  padding: .5rem  clamp(.5rem, 2vw, 5rem);
 }
 
 .btn-lg {
@@ -3465,28 +3465,28 @@ html {
 }
 
 /* gallery */
-.row {
+.gallery-row {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
 }
 
-.row .column {
-  flex: 50%;
+.gallery-row .gallery-column {
+  flex: calc(10vw - 1.25em);
   width: auto;
-
+  margin: 2.5em;
   height: 100%;
 }
 
-.row .column img {
-  margin: 2.5em 0 0 2.5em;
+.gallery-row .gallery-column img {
+ 
   width: 100%;
   height: 100%;
   filter: grayscale(0.7);
   border-radius: 5px;
   transition: 0.3s linear;
 }
-.row .column img:hover {
+.gallery-row .gallery-column img:hover {
   filter: grayscale(0);
   -moz-transform: scale(1.1);
   -webkit-transform: scale(1.1);
@@ -3585,27 +3585,28 @@ html {
 
 #projects {
   background-image: linear-gradient(#f0ded6, #f2849e);
+  padding-top: clamp(3rem, 25vh, 7rem);
+  position: relative;
 }
 
 #projects p {
-  font-size: 86px;
-  padding-top: 1.5em;
+  font-size: var(--fs-xl);
   text-transform: uppercase;
   letter-spacing: 0.35em;
   font-weight: bold;
   text-align: center;
-  margin: 2.5em 3em 0.25em 3em;
+  margin: clamp(.5rem, 10vh, 5rem) 1cqw 0.25em 1cqw;
 }
 
 /*additions responsiveness*/
 /*gallery responsive*/
 @media screen and (max-width: 1280px) {
-  .row {
+  .gallery-row {
     margin: -1.25em 0 0 -1.25em;
   }
 
-  .row .column {
-    flex: calc(33.33333% - 1.25em);
+  .gallery-row .gallery-column {
+    flex: calc(30vw - 1.25em);
     margin: 1.25em 0 0 1.25em;
   }
 
@@ -3627,13 +3628,9 @@ html {
   }
 
   /*Gallery*/
-  .row {
-    margin: -2.5em 0 0 -2.5em;
-  }
 
-  .row .column {
+  .gallery-row .gallery-column {
     flex: calc(50% - 2.5em);
-    margin: 2.5em 0 0 2.5em;
   }
 
   
@@ -3655,14 +3652,19 @@ html {
   .logobar nav li {
     padding: 0 2vw;
   }
+
+  /*button responsiveness*/
+  .nav-item {
+    padding: .5rem  clamp(.5rem, 1vw, 1rem);
+  }
 }
 
 @media screen and (max-width: 736px) {
-  .row {
+  .gallery-row {
     margin: -1.25em 0 0 -1.25em;
   }
 
-  .row .column img:hover {
+  .gallery-row .gallery-column img:hover {
     -moz-transform: scale(1);
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
@@ -3679,31 +3681,20 @@ html {
   .header-text h1{
     margin:0;
   }
-
-  #projects p {
-    font-size: 40px;
-    padding-top: 10rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-weight: bold;
-    text-align: center;
-    margin: 0.5em 1em 0.25em 1em;
-  }
 }
 
 @media screen and (max-width: 590px) {
-  .row {
+  .gallery-row {
     margin: 0;
   }
 
-  .row .column {
-    flex: 100%;
+  .gallery-row .gallery-column {
+    flex: 80vw;
     margin: 1.25em 0 0 0;
   }
 
-  .row .column img {
+  .gallery-row .gallery-column img {
     filter: grayscale(0);
-    padding: 0 2em 0 0;
   }
 
   .logo .symbol{
@@ -3744,7 +3735,7 @@ html {
 }
 
 @media (hover: none) {
-  .row .column img {
+  .gallery-row .gallery-column img {
     filter: grayscale(0);
   }
 }
