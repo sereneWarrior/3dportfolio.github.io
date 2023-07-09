@@ -274,7 +274,8 @@ h1 {
   font-weight: 700;
   line-height: 1.3;
   margin: 0 0 1em 0;
-  letter-spacing: -0.035em;
+  letter-spacing: .15em;
+  text-transform: uppercase;
 }
 
 h1 a {
@@ -3846,5 +3847,6 @@ button a {
 
 .project-page {
   padding-top: 20vh !important;
-  height: 100vh !important;
+ 
+  background-color: #efddd5 !important;
 }
