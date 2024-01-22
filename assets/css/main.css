@@ -262,7 +262,8 @@ i {
 }
 
 p {
-  margin: 0 0 2em 0;
+  margin: 0 0 2em 1em;
+  font-size: 1.2em;
 }
 
 .ongoing {
@@ -624,6 +625,7 @@ hr.major {
 
 .row.gtr-uniform {
   margin-top: -2em;
+  justify-content: space-around;
 }
 
 .row.gtr-uniform > * {
